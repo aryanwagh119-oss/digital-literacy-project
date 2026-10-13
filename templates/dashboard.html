@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="section">
+<h1>Welcome, {{ user['name'] }}</h1>
+<div class="profile card">
+<p><b>Email:</b> {{ user['email'] }}</p>
+<p><b>Location:</b> {{ user['location'] or 'Not provided' }}</p>
+<p><b>Digital skill:</b> {{ user['skill_level'] }}</p>
+</div>
+<h2>Your quiz results</h2>
+{% if results %}
+<table><tr><th>Date</th><th>Score</th><th>Level</th></tr>
+{% for r in results %}<tr><td>{{ r['created_at'] }}</td><td>{{ r['score'] }}/{{ r['total'] }}</td><td>{{ r['level'] }}</td></tr>{% endfor %}
+</table>
+{% else %}<p>No quiz attempts yet. <a href="{{ url_for('quiz') }}">Take the quiz</a>.</p>{% endif %}
+</div>
+{% endblock %}

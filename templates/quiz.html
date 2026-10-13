@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Digital Literacy Quiz{% endblock %}
+{% block content %}
+<div class="section">
+<h1>Digital Literacy Quiz</h1>
+<p>Choose one answer for each question.</p>
+<form method="post">
+{% for q, options, answer in questions %}
+<div class="question">
+<h3>{{ loop.index }}. {{ q }}</h3>
+{% for option in options %}
+<label class="option"><input type="radio" name="q{{ loop.parent.index0 }}" value="{{ loop.index0 }}" required> {{ option }}</label>
+{% endfor %}
+</div>
+{% endfor %}
+<button class="button" type="submit">Submit Quiz</button>
+</form>
+</div>
+{% endblock %}

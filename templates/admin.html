@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="section">
+<div class="admin-head"><div><h1>Admin Dashboard</h1><p>View data submitted through the website.</p></div><a href="{{ url_for('admin_logout') }}">Logout</a></div>
+
+<h2>Registered Users ({{ users|length }})</h2>
+<div class="table-wrap"><table>
+<tr><th>ID</th><th>Name</th><th>Email</th><th>Age</th><th>Location</th><th>Education</th><th>Skill</th><th>Created</th></tr>
+{% for u in users %}<tr><td>{{u.id}}</td><td>{{u.name}}</td><td>{{u.email}}</td><td>{{u.age or ''}}</td><td>{{u.location}}</td><td>{{u.education}}</td><td>{{u.skill_level}}</td><td>{{u.created_at}}</td></tr>{% endfor %}
+</table></div>
+
+<h2>Quiz Results</h2>
+<div class="table-wrap"><table>
+<tr><th>User</th><th>Email</th><th>Score</th><th>Level</th><th>Date</th></tr>
+{% for r in results %}<tr><td>{{r.name}}</td><td>{{r.email}}</td><td>{{r.score}}/{{r.total}}</td><td>{{r.level}}</td><td>{{r.created_at}}</td></tr>{% endfor %}
+</table></div>
+
+<h2>Feedback</h2>
+<div class="table-wrap"><table>
+<tr><th>Name</th><th>Message</th><th>Date</th></tr>
+{% for f in feedback %}<tr><td>{{f.name}}</td><td>{{f.message}}</td><td>{{f.created_at}}</td></tr>{% endfor %}
+</table></div>
+</div>
+{% endblock %}

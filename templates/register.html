@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="formbox">
+<h1>Create your account</h1>
+<p class="muted">Only provide information needed for this educational project.</p>
+<form method="post">
+<label>Name<input name="name" required></label>
+<label>Email<input type="email" name="email" required></label>
+<label>Password<input type="password" name="password" minlength="6" required></label>
+<label>Age<input type="number" name="age" min="10" max="100"></label>
+<label>Village / City<input name="location"></label>
+<label>Education<input name="education" placeholder="e.g. 10th, 12th, Graduate"></label>
+<label>Digital skill level
+<select name="skill_level">
+<option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+</select></label>
+<button class="button" type="submit">Register</button>
+</form>
+<p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+</div>
+{% endblock %}

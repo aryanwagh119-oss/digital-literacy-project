@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home | Digital Literacy{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="tag">BCA Project</span>
+    <h1>Digital Literacy for Rural & Semi-Urban Communities</h1>
+    <p>Learn how to use digital services safely, confidently and effectively in everyday life.</p>
+    <a class="button" href="{{ url_for('register') }}">Start Learning</a>
+    <a class="button outline" href="{{ url_for('resources') }}">Explore Resources</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What you can learn</h2>
+  <div class="cards">
+    <div class="card"><h3>📱 Digital Basics</h3><p>Understand smartphones, apps, internet browsing and useful online services.</p></div>
+    <div class="card"><h3>🔐 Cyber Safety</h3><p>Learn about passwords, OTPs, phishing, privacy and safe online habits.</p></div>
+    <div class="card"><h3>💳 Digital Payments</h3><p>Understand UPI and basic safety practices for digital transactions.</p></div>
+    <div class="card"><h3>🏛️ Government Services</h3><p>Learn how digital platforms can help access public services and information.</p></div>
+  </div>
+</section>
+
+<section class="section highlight">
+  <h2>Test your digital knowledge</h2>
+  <p>Register, take our 10-question quiz and track your results.</p>
+  <a class="button" href="{{ url_for('register') }}">Create Account</a>
+</section>
+{% endblock %}

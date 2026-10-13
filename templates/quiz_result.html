@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Quiz Result{% endblock %}
+{% block content %}
+<div class="result">
+<h1>Your Result</h1>
+<div class="score">{{ score }}/{{ total }}</div>
+<h2>{{ level }}</h2>
+<p>Your result has been saved to your account.</p>
+<a class="button" href="{{ url_for('dashboard') }}">View Dashboard</a>
+<a class="button outline" href="{{ url_for('quiz') }}">Try Again</a>
+</div>
+{% endblock %}
